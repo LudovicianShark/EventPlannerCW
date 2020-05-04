@@ -7,18 +7,30 @@ import {
     Form,
     FormGroup,
     Label,
-    Input
+    Input, 
+    Dropdown, 
+    DropdownToggle,
+    DropdownMenu, 
+    DropdownItem
 } from 'reactstrap';
+//import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 import { connect } from 'react-redux';
 import { addItem } from '../actions/itemActions';
+
+//import DatePicker from "react-datepicker";
+
 
 class ItemModal extends Component { 
     state = {
         modal: false,
         name: '',
-        type: ''
+        type: '',
+        eventDate: '',
+        startTime: ''
     }
 
+   
     toggle = () => {
         this.setState({
             modal: !this.state.modal
@@ -26,7 +38,12 @@ class ItemModal extends Component {
     }
 
     onChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value})
+        this.setState({ 
+            [e.target.name]: e.target.value,
+            [e.target.type]: e.target.value,
+            [e.target.eventDate]: e.target.value,
+            [e.target.startTime]: e.target.value
+        })
     }
 
 
@@ -35,7 +52,9 @@ class ItemModal extends Component {
         
         const newItem = {
             name: this.state.name,
-            type: this.state.type
+            type: this.state.type,
+            eventDate: this.state.eventDate,
+            startTime: this.state.startTime
 
         }
 
@@ -65,17 +84,37 @@ class ItemModal extends Component {
                                 <FormGroup>
                                     <Label for="item">Item</Label>
                                     <Input
+                                    style={{marginBottom: '1rem'}}
                                     type="text"
                                     name="name"
                                     id="item"
-                                    placeholder="Add Shopping item"
+                                    placeholder="Add Event Name"
                                     onChange={this.onChange}
                                     />
-                                    <Input
-                                    type="text"
+                                    <Input 
+                                    type="select" 
                                     name="type"
                                     id="item"
-                                    placeholder="Add Type"
+                                    onChange={this.onChange}>
+                                        <option hidden>Select Event Type</option>
+                                        <option>Live Music</option>
+                                        <option>Musical</option>
+                                        <option>Pantomine</option>
+                                        <option>Theatre Production</option>
+                                        <option>Comedy Show</option>
+                                    </Input>
+                                    <Input 
+                                    type="date" 
+                                    name="eventDate"
+                                    id="item"
+                                    onChange={this.onChange}>
+                                    </Input>
+                                    <Input
+                                    id="time"
+                                    label="Alarm clock"
+                                    type="time"
+                                    name="startTime"
+                                    defaultValue="07:30"
                                     onChange={this.onChange}
                                     />
                                     <Button 

@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
+
 //Create Schema
 const ItemSchema = new Schema({ 
     name: {
@@ -11,10 +13,18 @@ const ItemSchema = new Schema({
          type: String,
          required: true
     },
-    date: { 
+    eventDate: { 
+        type: Date,
+        required: true
+    },
+    startTime: { 
+        type: String,
+        required: true
+    },
+    dateRecorded: { 
         type: Date,
         default: Date.now
-    }
+    },
 });
 
 module.exports = Item = mongoose.model('item', ItemSchema);

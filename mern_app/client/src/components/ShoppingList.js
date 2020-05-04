@@ -4,8 +4,11 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getItems, deleteItem } from '../actions/itemActions'
 import PropTypes from 'prop-types';
+import Moment from 'moment';
+
 
 class ShoppingList extends Component {
+
     
     componentDidMount() {
         this.props.getItems();
@@ -17,11 +20,12 @@ class ShoppingList extends Component {
 
     render() {
         const { items } = this.props.item;
+        Moment.locale('en');
         return(
         <Container>
             <ListGroup>
                 <TransitionGroup className="shopping-list">
-                    {items.map(({ _id, name, type}) => (
+                    {items.map(({ _id, name, type, eventDate, startTime}) => (
                         <CSSTransition key={_id} timeout={500} classNames="fade">
                             <ListGroupItem>
                                 <Button 
@@ -31,7 +35,7 @@ class ShoppingList extends Component {
                                 onClick={this.onDeleteClick.bind(this, _id)}
                                 >&times;
                                 </Button>
-                                {name} {type}
+                                {name} {type} {Moment({eventDate}).format('DD/MM/YYYY')} {startTime}
                             </ListGroupItem>
                         </CSSTransition>
                     ))}
