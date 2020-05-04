@@ -21,6 +21,10 @@ const ItemSchema = new Schema({
         type: String,
         required: true
     },
+    endTime: { 
+        type: String,
+        required: true
+    },
     dateRecorded: { 
         type: Date,
         default: Date.now

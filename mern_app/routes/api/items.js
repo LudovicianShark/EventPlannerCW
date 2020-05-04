@@ -18,10 +18,11 @@ router.get('/', (req, res) => {
 // @access  Public
 router.post('/', (req, res) => {
     const newItem = new Item({
-        name: req.body.name,
-        type: req.body.type,
-        eventDate: req.body.eventDate,
-        startTime: req.body.startTime
+        name:       req.body.name,
+        type:       req.body.type,
+        eventDate:  req.body.eventDate,
+        startTime:  req.body.startTime,
+        endTime:    req.body.endTime
     });
     newItem.save().then(item => res.json(item));
 });

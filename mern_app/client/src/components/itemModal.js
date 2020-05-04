@@ -27,7 +27,8 @@ class ItemModal extends Component {
         name: '',
         type: '',
         eventDate: '',
-        startTime: ''
+        startTime: '',
+        endTime: ''
     }
 
    
@@ -42,7 +43,8 @@ class ItemModal extends Component {
             [e.target.name]: e.target.value,
             [e.target.type]: e.target.value,
             [e.target.eventDate]: e.target.value,
-            [e.target.startTime]: e.target.value
+            [e.target.startTime]: e.target.value,
+            [e.target.endTime]: e.target.value
         })
     }
 
@@ -54,7 +56,8 @@ class ItemModal extends Component {
             name: this.state.name,
             type: this.state.type,
             eventDate: this.state.eventDate,
-            startTime: this.state.startTime
+            startTime: this.state.startTime,
+            endTime: this.state.endTime
 
         }
 
@@ -110,10 +113,16 @@ class ItemModal extends Component {
                                     onChange={this.onChange}>
                                     </Input>
                                     <Input
-                                    id="time"
-                                    label="Alarm clock"
+                                    label="Event Start Time"
                                     type="time"
                                     name="startTime"
+                                    defaultValue="07:30"
+                                    onChange={this.onChange}
+                                    />
+                                    <Input
+                                    label="Event End Time"
+                                    type="time"
+                                    name="endTime"
                                     defaultValue="07:30"
                                     onChange={this.onChange}
                                     />
