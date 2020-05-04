@@ -22,7 +22,8 @@ router.post('/', (req, res) => {
         type:       req.body.type,
         eventDate:  req.body.eventDate,
         startTime:  req.body.startTime,
-        endTime:    req.body.endTime
+        endTime:    req.body.endTime,
+        description: req.body.description
     });
     newItem.save().then(item => res.json(item));
 });

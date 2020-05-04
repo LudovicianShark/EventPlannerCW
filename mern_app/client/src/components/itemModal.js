@@ -40,11 +40,12 @@ class ItemModal extends Component {
 
     onChange = (e) => {
         this.setState({ 
-            [e.target.name]: e.target.value,
-            [e.target.type]: e.target.value,
-            [e.target.eventDate]: e.target.value,
-            [e.target.startTime]: e.target.value,
-            [e.target.endTime]: e.target.value
+            [e.target.name]:        e.target.value,
+            [e.target.type]:        e.target.value,
+            [e.target.eventDate]:   e.target.value,
+            [e.target.startTime]:   e.target.value,
+            [e.target.endTime]:     e.target.value,
+            [e.target.description]: e.target.value
         })
     }
 
@@ -57,7 +58,8 @@ class ItemModal extends Component {
             type: this.state.type,
             eventDate: this.state.eventDate,
             startTime: this.state.startTime,
-            endTime: this.state.endTime
+            endTime: this.state.endTime,
+            description: this.state.description
 
         }
 
@@ -81,20 +83,22 @@ class ItemModal extends Component {
                     toggle={this.toggle}
                     >
                         <ModalHeader toggle={this.toggle}
-                        >Add To Shopping List</ModalHeader>
+                        >Add Event To The Planner</ModalHeader>
                         <ModalBody>
                             <Form onSubmit={this.onSubmit}>
                                 <FormGroup>
-                                    <Label for="item">Item</Label>
+                                    <Label for="item">Event Name</Label>
                                     <Input
-                                    style={{marginBottom: '1rem'}}
+                                    style={{marginBottom: '0.5rem'}}
                                     type="text"
                                     name="name"
                                     id="item"
                                     placeholder="Add Event Name"
                                     onChange={this.onChange}
                                     />
+                                    <Label for="type">Event Type</Label>
                                     <Input 
+                                    style={{marginBottom: '0.5rem'}}
                                     type="select" 
                                     name="type"
                                     id="item"
@@ -106,26 +110,40 @@ class ItemModal extends Component {
                                         <option>Theatre Production</option>
                                         <option>Comedy Show</option>
                                     </Input>
+                                    <Label for="eventDate">Date of Event</Label>
                                     <Input 
+                                    style={{marginBottom: '0.5rem'}}
                                     type="date" 
                                     name="eventDate"
                                     id="item"
                                     onChange={this.onChange}>
                                     </Input>
+                                    <Label for="startTime">Event Start Time (24h)</Label>
                                     <Input
-                                    label="Event Start Time"
+                                    style={{marginBottom: '0.5rem'}}
                                     type="time"
                                     name="startTime"
-                                    defaultValue="07:30"
-                                    onChange={this.onChange}
-                                    />
+                                    defaultValue="00:00"
+                                    onChange={this.onChange}>
+                                    </Input>
+                                    <Label for="endTime">Event End Time (24h)</Label>
                                     <Input
+                                    style={{marginBottom: '0.5rem'}}
                                     label="Event End Time"
                                     type="time"
                                     name="endTime"
-                                    defaultValue="07:30"
+                                    defaultValue="00:00"
+                                    onChange={this.onChange}>
+                                    </Input>
+                                    <Label for="description">Enter an event description</Label>
+                                    <Input 
+                                    style={{marginBottom: '0.5rem'}}
+                                    type="string" 
+                                    name="description"
+                                    id="item"
                                     onChange={this.onChange}
-                                    />
+                                    placeholder="Please enter a description">
+                                    </Input>
                                     <Button 
                                     color='dark'
                                     style={{marginTop: '2rem'}}

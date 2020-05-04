@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { getItems, deleteItem } from '../actions/itemActions'
 import PropTypes from 'prop-types';
 import Moment from 'moment';
+import Image from 'react-bootstrap/Image';
 
 
 class ShoppingList extends Component {
@@ -25,7 +26,7 @@ class ShoppingList extends Component {
         <Container>
             <ListGroup>
                 <TransitionGroup className="shopping-list">
-                    {items.map(({ _id, name, type, eventDate, startTime, endTime}) => (
+                    {items.map(({ _id, name, type, eventDate, startTime, endTime, description}) => (
                         <CSSTransition key={_id} timeout={500} classNames="fade">
                             <ListGroupItem>
                                 <Button 
@@ -35,7 +36,9 @@ class ShoppingList extends Component {
                                 onClick={this.onDeleteClick.bind(this, _id)}
                                 >&times;
                                 </Button>
-                                {name} {type} {Moment({eventDate}).format('DD/MM/YYYY')} {startTime} {endTime}
+                                <h2>{name}</h2> <h5>Show Type: {type}</h5>
+                                <Image src="images/rect.png" rounded />
+                                <h6>Event Date: {Moment({eventDate}).format('DD/MM/YYYY')}</h6> <p>Start: {startTime} Finish: {endTime}</p> <p className="desc-p">Description: </p><p>{description}</p>
                             </ListGroupItem>
                         </CSSTransition>
                     ))}
