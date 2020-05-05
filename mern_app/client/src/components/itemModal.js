@@ -106,7 +106,7 @@ class ItemModal extends Component {
                                         <option hidden>Select Event Type</option>
                                         <option>Live Music</option>
                                         <option>Musical</option>
-                                        <option>Pantomine</option>
+                                        <option>Pantomime</option>
                                         <option>Theatre Production</option>
                                         <option>Comedy Show</option>
                                     </Input>

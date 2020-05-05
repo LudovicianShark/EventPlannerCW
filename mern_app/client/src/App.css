@@ -27,5 +27,7 @@
 .images {
     position: absolute;
     right: 5px;
-    top: 1px;
+    top: 5px;
+    width: 40%;
+    height: 50%;
 }

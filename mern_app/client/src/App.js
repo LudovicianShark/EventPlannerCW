@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import AppNavbar from './components/app.navbar'
-import ShoppingList from './components/ShoppingList'
+import EventList from './components/EventList'
 import ItemModal from './components/itemModal'
 import  { Contantainer, Container } from 'reactstrap'
 
@@ -16,7 +16,7 @@ function App() {
       <AppNavbar />
       <Container>
       <ItemModal />
-      <ShoppingList />
+      <EventList />
       </Container>
     </div>
     </Provider>
