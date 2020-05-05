@@ -23,3 +23,9 @@
 .desc-p {
     margin-bottom: 0rem;
 }
+
+.images {
+    position: absolute;
+    right: 5px;
+    top: 1px;
+}

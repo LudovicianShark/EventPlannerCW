@@ -6,6 +6,7 @@ import { getItems, deleteItem } from '../actions/itemActions'
 import PropTypes from 'prop-types';
 import Moment from 'moment';
 import Image from 'react-bootstrap/Image';
+import img from '../images/rect.png';
 
 
 class ShoppingList extends Component {
@@ -36,8 +37,8 @@ class ShoppingList extends Component {
                                 onClick={this.onDeleteClick.bind(this, _id)}
                                 >&times;
                                 </Button>
+                                <img src={img} alt="Logo" className="images" />
                                 <h2>{name}</h2> <h5>Show Type: {type}</h5>
-                                <Image src="images/rect.png" rounded />
                                 <h6>Event Date: {Moment({eventDate}).format('DD/MM/YYYY')}</h6> <p>Start: {startTime} Finish: {endTime}</p> <p className="desc-p">Description: </p><p>{description}</p>
                             </ListGroupItem>
                         </CSSTransition>
