@@ -136,11 +136,11 @@ class RegisterModal extends Component {
   }
 }
 
-const mapStatToProps = (state) => ({
+const mapStateToProps = (state) => ({
   isAutheticated: state.auth.isAutheticated,
   error: state.error,
 });
 
-export default connect(mapStatToProps, { register, clearErrors })(
+export default connect(mapStateToProps, { register, clearErrors })(
   RegisterModal
 );

@@ -16,6 +16,7 @@ import {
 } from "reactstrap";
 
 import RegisterModal from "./auth/RegisterModal";
+import AboutModal from "./AboutModal";
 
 class AppNavbar extends Component {
   state = {
@@ -37,6 +38,9 @@ class AppNavbar extends Component {
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
+                <NavItem>
+                  <AboutModal />
+                </NavItem>
                 <NavItem>
                   <RegisterModal />
                 </NavItem>

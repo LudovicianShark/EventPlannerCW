@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
 // @route   POST api/items
 // @desc    Create An Item
 // @access  Private
-router.post("/", auth, (req, res) => {
+router.post("/", (req, res) => {
   const newItem = new Item({
     name: req.body.name,
     type: req.body.type,
@@ -32,7 +32,7 @@ router.post("/", auth, (req, res) => {
 // @route   DELETE api/items/:id
 // @desc    DELETE An Item
 // @access  Private
-router.delete("/:id", auth, (req, res) => {
+router.delete("/:id", (req, res) => {
   Item.findById(req.params.id)
     .then((item) => item.remove().then(() => res.json({ success: true })))
     .catch((err) => res.status(404).json({ success: false }));
