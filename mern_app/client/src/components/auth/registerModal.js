@@ -8,6 +8,7 @@ import {
   FormGroup,
   Label,
   Input,
+  NavLink
 } from "reactstrap";
 //import Dropdown from 'react-dropdown';
 import "react-dropdown/style.css";
@@ -51,54 +52,39 @@ class RegisterModal extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const newItem = {
-      name: this.state.name,
-      type: this.state.type,
-      eventDate: this.state.eventDate,
-      startTime: this.state.startTime,
-      endTime: this.state.endTime,
-      description: this.state.description,
-    };
-
-    //Add item from addItem action
-    this.props.addItem(newItem);
-
     //Close Modal
     this.toggle();
   };
   render() {
     return (
       <div>
-        <Button
-          color="dark"
-          style={{ marginBottom: "2rem" }}
-          onClick={this.toggle}
-        >
-          Add Item
-        </Button>
-
+            <NavLink onClick={this.toggle} href="#">
+                Register
+            </NavLink>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>
-            Add Event To The Planner
+            Account Registration
           </ModalHeader>
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
-                <Label for="item">Event Name</Label>
+                <Label for="item">User Name</Label>
                 <Input
                   style={{ marginBottom: "0.5rem" }}
                   type="text"
                   name="name"
-                  id="item"
-                  placeholder="Add Event Name"
+                  id="name"
+                  placeholder="Add User Name Name"
                   onChange={this.onChange}
                 />
-                <Label for="type">Event Type</Label>
+                <Label for="type">Email</Label>
                 <Input
                   style={{ marginBottom: "0.5rem" }}
-                  type="select"
-                  name="type"
-                  id="item"
+                  type="email"
+                  name="email"
+                                id="email"
+                                placeholder="email address"
+
                   onChange={this.onChange}
                 >
                   <option hidden>Select Event Type</option>
