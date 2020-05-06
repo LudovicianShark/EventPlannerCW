@@ -16,6 +16,9 @@ const config = require('config');
 //Item Model
 const User = require('../../models/User');
 
+//Authentication Middleware
+const auth = require('../../middleware/auth');
+
 // @route   Post api/auth
 // @desc    Authentic user
 // @access  Public
@@ -54,8 +57,17 @@ User.findOne({ email })
              });
             }
         )
-
     })    
    })
 });
+
+// @route   Get api/auth/user
+// @desc    Authentic user
+// @access  Private
+router.get('/user', auth, (req, res) => {
+    User.findById(req.user.id)
+    .select('-password')
+    .then(user => res.json(user));
+});
+
 module.exports = router;
