@@ -48,10 +48,11 @@ export default function (state = initialState, action) {
         ...state,
         token: null,
         user: null,
-        isAuthenticated: null,
-        isLoading: null,
+        isAuthenticated: false,
+        isLoading: false,
       };
     default:
+      localStorage.removeItem("token");
       return state;
   }
 }

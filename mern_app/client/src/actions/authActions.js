@@ -34,17 +34,15 @@ export const loadUser = () => (dispatch, getState) => {
     });
 };
 
-//Register User
-export const register = ({ uName, email, password }) => (dispatch) => {
-  //Header
+//Register user
+export const register = ({ name, email, password }) => (dispatch) => {
+  //Headers
   const config = {
     headers: {
-      "Content-Type": "application/json",
+      "Content-type": "application/json",
     },
   };
-
-  //Request body
-  const body = JSON.stringify({ uName, email, password });
+  const body = JSON.stringify({ name, email, password });
 
   axios
     .post("/api/users", body, config)
@@ -63,7 +61,7 @@ export const register = ({ uName, email, password }) => (dispatch) => {
       });
     });
 };
-//Setup config/headers and token
+
 export const tokenConfig = (getState) => {
   //Get token from local storage
   const token = getState().auth.token;
@@ -79,6 +77,5 @@ export const tokenConfig = (getState) => {
   if (token) {
     config.headers["x-auth-token"] = token;
   }
-
   return config;
 };
