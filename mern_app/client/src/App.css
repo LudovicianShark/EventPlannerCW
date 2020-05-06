@@ -23,6 +23,10 @@
 .desc-p {
   margin-bottom: 0rem;
 }
+.reg-p {
+  margin-bottom: 0rem;
+  text-align: center;
+}
 
 .images {
   position: absolute;
