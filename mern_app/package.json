@@ -1,6 +1,6 @@
 {
   "name": "cw_events",
-  "version": "1.8",
+  "version": "3.0",
   "description": "MERN stack application, Enterprise Web Systems Coursework",
   "main": "server.js",
   "scripts": {
