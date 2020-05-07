@@ -3,6 +3,9 @@
   "version": "3.0",
   "description": "MERN stack application, Enterprise Web Systems Coursework",
   "main": "server.js",
+  "engines": {
+    "node": "12.16.x"
+  },
   "scripts": {
     "client-install": "npm install --prefix client",
     "start": "node server.js",
