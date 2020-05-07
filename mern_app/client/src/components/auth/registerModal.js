@@ -11,14 +11,20 @@ import {
   NavLink,
   Alert,
 } from "reactstrap";
-//import Dropdown from 'react-dropdown';
-import "react-dropdown/style.css";
 
+//Prop types import
 import PropTypes from "prop-types";
+
+//connect import
 import { connect } from "react-redux";
+
+//Register function import
 import { register } from "../../actions/authActions";
+
+//clear errors function import
 import { clearErrors } from "../../actions/errorActions";
 
+//RegisterModal class implementation
 class RegisterModal extends Component {
   state = {
     modal: false,
@@ -28,6 +34,7 @@ class RegisterModal extends Component {
     msg: null,
   };
 
+  //Prop types
   static propTypes = {
     isAutheticated: PropTypes.bool,
     error: PropTypes.object.isRequired,
@@ -51,7 +58,7 @@ class RegisterModal extends Component {
       }
     }
   }
-
+  //Toggle function
   toggle = () => {
     //Clear errors
     this.props.clearErrors();
@@ -60,14 +67,17 @@ class RegisterModal extends Component {
     });
   };
 
+  //onChange function
   onChange = (e) => {
     this.setState({
+      //Target the user inputs
       [e.target.name]: e.target.value,
       [e.target.email]: e.target.value,
       [e.target.password]: e.target.value,
     });
   };
 
+  //On submit function, takes inputs and passes them to register function
   onSubmit = (e) => {
     e.preventDefault();
 
@@ -79,10 +89,11 @@ class RegisterModal extends Component {
       email,
       password,
     };
-
+    //Register user using newUser object
     this.props.register(newUser);
   };
 
+  //Render the modal view for the registration form
   render() {
     return (
       <div>
@@ -141,6 +152,7 @@ const mapStateToProps = (state) => ({
   error: state.error,
 });
 
+//export RegisterModal
 export default connect(mapStateToProps, { register, clearErrors })(
   RegisterModal
 );

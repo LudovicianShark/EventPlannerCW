@@ -9,13 +9,14 @@ import {
   Label,
   Input,
 } from "reactstrap";
-//import Dropdown from 'react-dropdown';
-import "react-dropdown/style.css";
+
+//Connect import
 import { connect } from "react-redux";
+
+//Add item funciton import
 import { addItem } from "../actions/itemActions";
 
-//import DatePicker from "react-datepicker";
-
+//Item Modal view component
 class ItemModal extends Component {
   state = {
     modal: false,
@@ -26,12 +27,14 @@ class ItemModal extends Component {
     endTime: "",
   };
 
+  //Toggle State
   toggle = () => {
     this.setState({
       modal: !this.state.modal,
     });
   };
 
+  //Take values inputted by user when they are edited, dont accept default values
   onChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
@@ -43,6 +46,7 @@ class ItemModal extends Component {
     });
   };
 
+  //on submit create new item object and pass it through the add item function
   onSubmit = (e) => {
     e.preventDefault();
 
@@ -61,6 +65,8 @@ class ItemModal extends Component {
     //Close Modal
     this.toggle();
   };
+
+  //Render Item Modal view
   render() {
     return (
       <div>
@@ -97,11 +103,11 @@ class ItemModal extends Component {
                   onChange={this.onChange}
                 >
                   <option hidden>Select Event Type</option>
+                  <option>Comedy Show</option>
                   <option>Live Music</option>
                   <option>Musical</option>
                   <option>Pantomime</option>
                   <option>Theatre Production</option>
-                  <option>Comedy Show</option>
                 </Input>
                 <Label for="eventDate">Date of Event</Label>
                 <Input
@@ -153,4 +159,5 @@ const mapStatToProps = (state) => ({
   item: state.item,
 });
 
+//Item modal export
 export default connect(mapStatToProps, { addItem })(ItemModal);

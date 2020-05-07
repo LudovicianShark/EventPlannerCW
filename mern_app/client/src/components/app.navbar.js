@@ -6,29 +6,27 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText,
   Container,
 } from "reactstrap";
 
+//Import RegisterModal and aboutModal for view use
 import RegisterModal from "./auth/RegisterModal";
 import AboutModal from "./AboutModal";
 
+//App navbar class
 class AppNavbar extends Component {
   state = {
     isOpen: false,
   };
 
+  //Toggle state
   toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen,
     });
   };
 
+  //Render App navbar
   render() {
     return (
       <div>
@@ -53,4 +51,5 @@ class AppNavbar extends Component {
   }
 }
 
+//export app navbar
 export default AppNavbar;

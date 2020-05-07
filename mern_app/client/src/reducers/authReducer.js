@@ -9,6 +9,7 @@ import {
   REGISTER_FAIL,
 } from "../actions/types";
 
+//Initial state before reducer actions
 const initialState = {
   token: localStorage.getItem("token"),
   isAuthenticated: null,
@@ -16,6 +17,7 @@ const initialState = {
   user: null,
 };
 
+//function changes state depending on backend response
 export default function (state = initialState, action) {
   switch (action.type) {
     case USER_LOADING:

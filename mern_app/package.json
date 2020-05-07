@@ -1,7 +1,7 @@
 {
-  "name": "mern_app",
-  "version": "1.0.0",
-  "description": "MERN application, Enterprise Web Systems Coursework",
+  "name": "cw_events",
+  "version": "1.8",
+  "description": "MERN stack application, Enterprise Web Systems Coursework",
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",

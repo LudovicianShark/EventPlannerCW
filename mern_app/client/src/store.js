@@ -12,4 +12,5 @@ const store = createStore(
   /* preloadedState, */ composeEnhancers(applyMiddleware(...middleware))
 );
 
+//store export
 export default store;

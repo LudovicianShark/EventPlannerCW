@@ -7,53 +7,17 @@ import {
   Form,
   FormGroup,
   Label,
-  Input,
   NavLink,
-  Alert,
 } from "reactstrap";
-//import Dropdown from 'react-dropdown';
-import "react-dropdown/style.css";
 
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { register } from "../actions/authActions";
-import { clearErrors } from "../actions/errorActions";
-
+//aboutModal view class
 class aboutModal extends Component {
   state = {
     modal: false,
-    name: "",
-    email: "",
-    password: "",
-    msg: null,
   };
 
-  static propTypes = {
-    isAutheticated: PropTypes.bool,
-    error: PropTypes.object.isRequired,
-    register: PropTypes.func.isRequired,
-    clearErrors: PropTypes.func.isRequired,
-  };
-
-  componentDidUpdate(prevProps) {
-    const { error, isAutheticated } = this.props;
-    if (error !== prevProps.error) {
-      //checkfor reg error
-      if (error.id === "REGISTER_FAIL") {
-        this.setState({ msg: error.msg.msg });
-      } else {
-        this.setState({ msg: null });
-      }
-    }
-    if (this.state.modal) {
-      if (isAutheticated) {
-        this.toggle();
-      }
-    }
-  }
-
+  //Toggle state
   toggle = () => {
-    //Clear errors
     this.setState({
       modal: !this.state.modal,
     });
@@ -61,10 +25,12 @@ class aboutModal extends Component {
 
   onChange = (e) => {};
 
+  //Toggle on/off modal view
   onSubmit = (e) => {
     this.toggle();
   };
 
+  //Render aboutModal view
   render() {
     return (
       <div>
@@ -76,7 +42,9 @@ class aboutModal extends Component {
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
-                <Label for="name">The CW Events Website</Label>
+                <Label for="name" className="h3">
+                  The CW Events Website
+                </Label>
                 <p className="desc-p">
                   This website is used by employees of the CW venue to view and
                   edit upcoming events at the CW.
@@ -99,4 +67,5 @@ class aboutModal extends Component {
   }
 }
 
+//export aboutModal
 export default aboutModal;

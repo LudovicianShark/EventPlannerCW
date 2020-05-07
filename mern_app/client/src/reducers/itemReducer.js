@@ -5,11 +5,13 @@ import {
   ITEMS_LOADING,
 } from "../actions/types";
 
+//Item initalstate
 const initialState = {
   items: [],
   loading: false,
 };
 
+//function changes state depending on backend response
 export default function (state = initialState, action) {
   switch (action.type) {
     case GET_ITEMS:

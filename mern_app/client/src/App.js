@@ -14,6 +14,7 @@ class App extends Component {
   componentDidMount() {
     store.dispatch(loadUser());
   }
+  //Render entire web application(All views)
   render() {
     return (
       <Provider store={store}>
@@ -29,4 +30,5 @@ class App extends Component {
   }
 }
 
+//App export
 export default App;

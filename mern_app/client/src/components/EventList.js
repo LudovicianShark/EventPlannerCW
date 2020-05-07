@@ -5,18 +5,20 @@ import { connect } from "react-redux";
 import { getItems, deleteItem } from "../actions/itemActions";
 import PropTypes from "prop-types";
 import Moment from "moment";
-import Image from "react-bootstrap/Image";
 import img from "../images/LMusic.jpg";
 
+//Event List component
 class EventList extends Component {
   componentDidMount() {
     this.props.getItems();
   }
 
+  //Delete button click fn=unction
   onDeleteClick = (id) => {
     this.props.deleteItem(id);
   };
 
+  //Render event list view, large bulk of wep application
   render() {
     const { items } = this.props.item;
     Moment.locale("en");
@@ -73,4 +75,5 @@ const mapStateToProps = (state) => ({
   item: state.item,
 });
 
+//Event List export
 export default connect(mapStateToProps, { getItems, deleteItem })(EventList);

@@ -18,6 +18,7 @@ export const loadUser = () => (dispatch, getState) => {
   //User Loading
   dispatch({ type: USER_LOADING });
 
+  //load user with autherisastion action
   axios
     .get("/api/auth/user", tokenConfig(getState))
     .then((res) =>
@@ -26,6 +27,7 @@ export const loadUser = () => (dispatch, getState) => {
         payload: res.data,
       })
     )
+    //Error catcher
     .catch((err) => {
       dispatch(returnErrors(err.response.data, err.response.status));
       dispatch({
@@ -34,7 +36,7 @@ export const loadUser = () => (dispatch, getState) => {
     });
 };
 
-//Register user
+//Register user with inputted name, email and password
 export const register = ({ name, email, password }) => (dispatch) => {
   //Headers
   const config = {
@@ -44,6 +46,7 @@ export const register = ({ name, email, password }) => (dispatch) => {
   };
   const body = JSON.stringify({ name, email, password });
 
+  //Post to users database
   axios
     .post("/api/users", body, config)
     .then((res) =>
@@ -52,6 +55,7 @@ export const register = ({ name, email, password }) => (dispatch) => {
         payload: res.data,
       })
     )
+    //Error catcher
     .catch((err) => {
       dispatch(
         returnErrors(err.response.data, err.response.status, "REGISTER_FAIL")
